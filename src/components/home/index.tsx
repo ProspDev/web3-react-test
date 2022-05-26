@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import './home.scss';
 import Web3 from 'web3';
+import detectEthereumProvider from '@metamask/detect-provider';
 
 interface Web3API {
     web3: any,
@@ -17,24 +18,16 @@ const Home: React.FC = () => {
 
     useEffect(() => {
         const loadProvider = async () => {
-            let provider = null;
+            const provider: any = await detectEthereumProvider();
 
-            if(window.ethereum) {
-                provider = window.ethereum;
-                try {
-                    await provider.request({method: 'eth_requestAccounts'});
-                } catch (err) {
-                    console.log('User denied account access!')
-                }
-            } else if(window.web3) {
-                provider = window.web3.currentProvider;
-            } else if(!process.env.production) {
-                provider = new Web3.providers.HttpProvider('http://localhost:7545');
+            if(provider) {
+                setWeb3Api({
+                    web3: new Web3(provider),
+                    provider
+                });
+            } else {
+                console.error('Please install Metamask');
             }
-            setWeb3Api({
-                web3: new Web3(provider),
-                provider
-            });
         };
 
         loadProvider();
@@ -53,18 +46,24 @@ const Home: React.FC = () => {
 
     return (
         <div className='vh-100 d-flex flex-column justify-content-center align-items-center'>
-            <div>
+            <div className='mb-3'>
                 <span>
                     <strong>Account: </strong>
                 </span>
-                <span>
-                    {account?? 'Not connected'}
-                </span>
+                {account? (
+                    <span>{account}</span>
+                ) : (
+                    <button className='btn btn-info ms-2'
+                        onClick={() => web3Api.provider.request({method: 'eth_requestAccounts'})}
+                    >
+                        Connect Wallet
+                    </button>
+                )}
             </div>
             <h2>Current Balance <span className='text-primary'>10 ETH</span></h2>
             <div className='d-flex justify-content-between' style={{width: '30%'}}>
-                <button className='btn btn-primary'>Donate</button>
-                <button className='btn btn-primary'>Withdraw</button>
+                <button className='btn btn-outline-primary'>Donate</button>
+                <button className='btn btn-outline-success'>Withdraw</button>
             </div>
             <div className='welcome mt-3'>
                 <h3>Welcome to our DApp</h3>
