@@ -9,7 +9,6 @@
     "@testing-library/user-event": "^13.5.0",
     "@types/jest": "^27.5.1",
     "@types/node": "^16.11.36",
-    "@types/react": "^18.0.9",
     "@types/react-dom": "^18.0.4",
     "assert": "^2.0.0",
     "assets": "^3.0.1",
@@ -19,6 +18,7 @@
     "http": "^0.0.1-security",
     "https-browserify": "^1.0.0",
     "os-browserify": "^0.3.0",
+    "path-browserify": "^1.0.1",
     "react": "^18.1.0",
     "react-dom": "^18.1.0",
     "react-scripts": "5.0.1",
@@ -57,6 +57,8 @@
     ]
   },
   "devDependencies": {
+    "@truffle/contract": "^4.5.12",
+    "@types/react": "^18.0.9",
     "react-app-rewired": "^2.2.1"
   }
 }

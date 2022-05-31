@@ -328,7 +328,7 @@
   "sourceMap": "66:251:2:-:0;;;114:49;;;;;;;;;;146:10;138:5;;:18;;;;;;;;;;;;;;;;;;66:251;;;;;;",
   "deployedSourceMap": "66:251:2:-:0;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;87:20;;;:::i;:::-;;;;;;;:::i;:::-;;;;;;;;;;;;;;;;;;;;:::o;7:126:3:-;44:7;84:42;77:5;73:54;62:65;;7:126;;;:::o;139:96::-;176:7;205:24;223:5;205:24;:::i;:::-;194:35;;139:96;;;:::o;241:118::-;328:24;346:5;328:24;:::i;:::-;323:3;316:37;241:118;;:::o;365:222::-;458:4;496:2;485:9;481:18;473:26;;509:71;577:1;566:9;562:17;553:6;509:71;:::i;:::-;365:222;;;;:::o",
   "source": "// SPDX-License-Identifier: MIT\npragma solidity >=0.4.22 <0.9.0;\n\ncontract Owned {\n    address public owner;\n\n    constructor() {\n        owner = msg.sender;\n    }\n\n    modifier onlyOwner {\n        require(\n            msg.sender == owner,\n            'Only owner can call this function'\n        );\n        _;\n    }\n}",
-  "sourcePath": "/home/prosper/Documents/dapp/contracts/Owned.sol",
+  "sourcePath": "/home/prosper/Documents/web3-react-test/contracts/Owned.sol",
   "ast": {
     "absolutePath": "project:/contracts/Owned.sol",
     "exportedSymbols": {
@@ -649,7 +649,7 @@
   },
   "networks": {},
   "schemaVersion": "3.4.7",
-  "updatedAt": "2022-05-26T08:53:55.896Z",
+  "updatedAt": "2022-05-28T13:17:23.294Z",
   "devdoc": {
     "kind": "dev",
     "methods": {},

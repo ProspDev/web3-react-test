@@ -51,7 +51,7 @@ contract Faucet is  Owned{
 }
 
 // const instance = await Faucet.deployed()
-// instance.addFunds({value: '200000000000', from: accounts[0]})
-// instance.addFunds({value: '200000000000', from: accounts[1]})
+// instance.addFunds({value: '10000000000000000', from: accounts[0]})
+// instance.addFunds({value: '10000000000000000', from: accounts[1]})
 // instance.getFunderAtIndex(0)
 // instance.withdraw(50000000000000, {from: ''})
